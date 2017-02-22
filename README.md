@@ -16,6 +16,12 @@ SONGKICK_KEY = ""
 
 SKYSCANNER_KEY = ""
 
-EXPEDIA_KEY = ""
+GOOGLE_PLACES_API_WEB_SERVICE_KEY = ""
 ~~~
 Fill in secret keys as appropriate.
+
+
+# Reference #
+
+* [Google Places API Web Services](https://developers.google.com/places/web-service/)
+* [python-google-places](https://github.com/slimkrazy/python-google-places)

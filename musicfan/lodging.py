@@ -49,6 +49,7 @@ def main():
     rs = get_query_lodging(city)
 
     for place in rs.places:
+
         # We have to do this to get the details
         place.get_details()
 
