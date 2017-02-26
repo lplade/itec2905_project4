@@ -23,5 +23,9 @@ Fill in secret keys as appropriate.
 
 # Reference #
 
-* [Google Places API Web Services](https://developers.google.com/places/web-service/)
+* [Google Places API Web Services](https://developers.google.com/places/web-service/) (for lodging search)
 * [python-google-places](https://github.com/slimkrazy/python-google-places)
+* [Flask](http://flask.pocoo.org/docs/0.12/)
+* [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.1/)
+* [Bootstrap](http://getbootstrap.com/css/)
+* [bootstrap-datepicker](https://bootstrap-datepicker.readthedocs.io/en/stable/)

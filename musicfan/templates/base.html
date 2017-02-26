@@ -30,14 +30,15 @@
 <body>
 
 <div class="container">
-    {% if error %}
+    {% if error %} <!--TODO use flash instead? -->
         <div class="bg-danger">{{ error }}</div>
     {% endif %}
     {% if info %}
         <div class="bg-info">{{ info }}</div>
     {% endif %}
-    {% block content %}{% endblock %}
-
+    {% block content %}
+    <!-- content will go here inside a div.container -->
+    {% endblock %}
 </div>
 {% block jsloads %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
