@@ -10,7 +10,8 @@ app = Flask(__name__)
 # We'll configure the SQLalchemy stuff here for the moment
 # TODO split ORM stuff into its own file
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///musicfan.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # this squelches console warning
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # this squelches the
+#                                                       console warning
 db = SQLAlchemy(app)
 
 
@@ -23,6 +24,7 @@ def index():
 
     # Do this stuff only if we are submitting the form
     if request.method == "POST":
+        pass
         # TODO try/except...
         # TODO create an object based on submitted form data
         # TODO apply any other logic to that object
