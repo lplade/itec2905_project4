@@ -10,9 +10,10 @@ from secrets import *
 class Concert:
     # data structure to store retrieved json data about a single event
 
-    def __init__(self, title, region_name, city_name, country_name,
+    def __init__(self, title, date, region_name, city_name, country_name,
                  longitude, latitude):
         title = title
+        date = date  # what format is this stored in?
         region_name = region_name  # State, in USA
         city_name = city_name
         country_name = country_name
@@ -58,31 +59,32 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
 
         for newValue in iter(value):
             # This loops each key and gets the value that it is needed
-                for item in newValue:
-                    title = str(newValue['title'])
-                    state = str(newValue['region_name'])
-                    city = str(newValue['city_name'])
-                    country = str(newValue['country_name'])
-                    longitude = float(newValue['longitude'])
-                    latitude = float(newValue['latitude'])
-                    # TODO get venue_name and venue_address for hotels
-                    # TODO url? I didn't think that the url is necessary because we need
-                    # the one for the hotels and travel options only.
+            for item in newValue:
+                title = str(newValue['title'])
+                state = str(newValue['region_name'])
+                city = str(newValue['city_name'])
+                country = str(newValue['country_name'])
+                longitude = float(newValue['longitude'])
+                latitude = float(newValue['latitude'])
+                # TODO get venue_name and venue_address for hotels
+                # TODO we need to get the event date too!
+                # TODO url? I didn't think that the url is necessary because we need
+                # the one for the hotels and travel options only.
 
-                    event_object = Concert(title=title,
-                                        region_name=state,
-                                        city_name=city,
-                                        country_name=country,
-                                        longitude=longitude,
-                                        latitude=latitude)
+                event_object = Concert(title=title,
+                                       date=date,
+                                       region_name=state,
+                                       city_name=city,
+                                       country_name=country,
+                                       longitude=longitude,
+                                       latitude=latitude)
 
-                    event_list.append(event_object)
+                event_list.append(event_object)
 
     return event_list
 
 
 def main():
-
     band = input("What band to search for? ")
 
     concert_list = search_by_band(band)
