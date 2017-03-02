@@ -1,2 +1,0 @@
-geo.json
-    Full list of supported places. North America - US json
