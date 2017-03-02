@@ -4,7 +4,7 @@ import requests
 # import json
 
 # This includes our secret API key
-from secrets_template import *
+from secrets import *
 
 
 class Concert:
@@ -76,7 +76,7 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
                 # the one for the hotels and travel options only.
                     # I agree, Boris
 
-            event_object = Concert(event_id=event_id
+            event_object = Concert(event_id=event_id, # Added the id number
                                    title=title,
                                    date=date,
                                    region_name=state,
