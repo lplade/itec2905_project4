@@ -1,4 +1,6 @@
 .idea
 *.pyc
-musicfan/secrets.py
+musicfan/secrets_template.py
 env_p4
+secrets_template.py
+secrets_template

@@ -10,8 +10,9 @@ from secrets_template import *
 class Concert:
 
     # data structure to store retrieved json data about a single event
-    def __init__(self, title, date, region_name, city_name, country_name,
+    def __init__(self, event_id, title, date, region_name, city_name, country_name,
                  longitude, latitude, venue_name):
+        self.id = event_id
         self.title = title
         self.date = date  # what format is this stored in?
         self.region_name = region_name  # State, in USA
@@ -61,6 +62,7 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
         for newValue in iter(value):
             # This loops each key and gets the value that it is needed
             for item in newValue:
+                event_id = str(newValue['id'])
                 title = str(newValue['title'])
                 state = str(newValue['region_name'])
                 city = str(newValue['city_name'])
@@ -74,7 +76,8 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
                 # the one for the hotels and travel options only.
                     # I agree, Boris
 
-            event_object = Concert(title=title,
+            event_object = Concert(event_id=event_id
+                                   title=title,
                                    date=date,
                                    region_name=state,
                                    city_name=city,
@@ -89,7 +92,7 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
             # # TODO This block is to check the api function, uncomment to see it running.
             # for concert in event_list:
             #     # Print staments
-            #     print('\nConcert: ', title, '\nCountry: ', country, '\nState: ',
+            #     print('\nId: ','\nConcert: ', title, '\nCountry: ', country, '\nState: ',
             #           state, '\nCity: ', city, '\nlongitude = ', longitude,
             #           '\nlatitude = ', latitude, '\ndate = ', date, '\nvenue_name = ', venue_name)
 
