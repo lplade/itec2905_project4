@@ -1,4 +1,5 @@
 # Copy this file to secrets.py, fill in API keys
+# Don't actually put your API key in this template
 
 # DON'T PUSH secrets.py TO GIT!!!
 
