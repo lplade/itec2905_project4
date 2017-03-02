@@ -2,7 +2,7 @@
 
 # DON'T PUSH secrets.py TO GIT!!!
 
-EVENTFUL_KEY = ""
+EVENTFUL_KEY = "NbxSqskJjRFNgfKv"
 
 SKYSCANNER_KEY = ""
 
