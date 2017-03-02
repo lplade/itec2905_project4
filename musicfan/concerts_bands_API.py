@@ -8,6 +8,7 @@ from secrets import *
 
 
 class Concert:
+    # Note that the band name is not stored here
 
     def __init__(self, event_id, title, date, region_name, city_name,
                  country_name, longitude, latitude, venue_name, venue_address):

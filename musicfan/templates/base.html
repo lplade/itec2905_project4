@@ -24,6 +24,8 @@
     <![endif]-->
     <link rel="stylesheet" href="/css/bootstrap-theme.css">
     <link rel="stylesheet" href="/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="/css/eventful.css">
+    <link rel="stylesheet" href="/css/sticky-footer.css">
     {% block head %}
     {% endblock %}
 </head>
@@ -57,11 +59,15 @@
     {% block custom_js %}{% endblock %}
 {% endblock %}
 </body>
-<footer>
-    <div class="eventful-badge eventful-small">
-        <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
-        alt="Local Events, Concerts, Tickets">
-        <p><a href="http://eventful.com/">Events</a> by Eventful</p>
-    </div>
-</footer>
+<footer class="footer">
+    {% block footer %}
+        <div class="container">
+            <div class="eventful-badge eventful-small">
+                <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+                alt="Local Events, Concerts, Tickets" class="eventful-pad">
+                <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+            </div>
+        </div>
+    {% endblock %}
+   </footer>
 </html>
