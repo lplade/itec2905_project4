@@ -1,5 +1,5 @@
 .idea
 *.pyc
-secrets.py
 env_p4
-cache/*
+musicfan/secrets.py
+musicfan/cache/*
