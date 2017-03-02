@@ -92,7 +92,7 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
             # # TODO This block is to check the api function, uncomment to see it running.
             # for concert in event_list:
             #     # Print staments
-            #     print('\nId: ','\nConcert: ', title, '\nCountry: ', country, '\nState: ',
+            #     print('\nId: ', event_id,'\nConcert: ', title, '\nCountry: ', country, '\nState: ',
             #           state, '\nCity: ', city, '\nlongitude = ', longitude,
             #           '\nlatitude = ', latitude, '\ndate = ', date, '\nvenue_name = ', venue_name)
 
