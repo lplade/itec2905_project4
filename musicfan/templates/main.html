@@ -25,21 +25,12 @@
                 <div class="form-group">
                     <label for="maxDistance">Max distance to search, in miles</label>
                     <input type="number" class="form-control" id="maxDistance"
-                           name="max_distance" value="5000">
+                           name="max_distance" value="500" min="0" step="50">
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
         </div>
     </div>
-<!-- This was added to display the eventful logo -->
-<footer>
-    <div
-        class="eventful-badge eventful-small">
-        <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
-        alt="Local Events, Concerts, Tickets">
-        <p><a href="http://eventful.com/">Events</a> by Eventful</p>
-    </div>
-</footer>
 {% endblock %}
 {% block custom_js %}
 <!-- put/load any scripts that are specific to this page here -->

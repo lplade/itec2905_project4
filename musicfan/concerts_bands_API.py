@@ -8,11 +8,11 @@ from secrets import *
 
 
 class Concert:
+    # Note that the band name is not stored here
 
-    # data structure to store retrieved json data about a single event
-    def __init__(self, event_id, title, date, region_name, city_name, country_name,
-                 longitude, latitude, venue_name):
-        self.id = event_id
+    def __init__(self, event_id, title, date, region_name, city_name,
+                 country_name, longitude, latitude, venue_name, venue_address):
+        self.event_id = event_id
         self.title = title
         self.date = date  # what format is this stored in?
         self.region_name = region_name  # State, in USA
@@ -21,7 +21,7 @@ class Concert:
         self.longitude = longitude
         self.latitude = latitude
         self.venue_name = venue_name
-        # TODO add venue_name and venue_address
+        self.venue_address = venue_address
 
 
 def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
@@ -69,24 +69,25 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
                 country = str(newValue['country_name'])
                 longitude = float(newValue['longitude'])
                 latitude = float(newValue['latitude'])
-                date = str(newValue['start_time']) # TODO we need to get the event date too!
-                venue_name = str(newValue['venue_name']) # TODO get venue_name and venue_address for hotels
-
+                venue_name = str(newValue['venue_name'])
+                venue_address = str(newValue['venue_address'])
+                date = str(newValue['start_time'])
                 # TODO url? I didn't think that the url is necessary because we need
                 # the one for the hotels and travel options only.
                     # I agree, Boris
 
-            event_object = Concert(event_id=event_id, # Added the id number
-                                   title=title,
-                                   date=date,
-                                   region_name=state,
-                                   city_name=city,
-                                   country_name=country,
-                                   longitude=longitude,
-                                   latitude=latitude,
-                                   venue_name= venue_name)
+                event_object = Concert(event_id=event_id,
+                                       title=title,
+                                       date=date,
+                                       region_name=state,
+                                       city_name=city,
+                                       country_name=country,
+                                       longitude=longitude,
+                                       latitude=latitude,
+                                       venue_name=venue_name,
+                                       venue_address=venue_address)
 
-            event_list.append(event_object)
+                event_list.append(event_object)
 
             # # This is to keep track  of the number of concerts.
             # # TODO This block is to check the api function, uncomment to see it running.
@@ -95,7 +96,6 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
             #     print('\nId: ', event_id,'\nConcert: ', title, '\nCountry: ', country, '\nState: ',
             #           state, '\nCity: ', city, '\nlongitude = ', longitude,
             #           '\nlatitude = ', latitude, '\ndate = ', date, '\nvenue_name = ', venue_name)
-
 
     return event_list
 

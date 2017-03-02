@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_googlemaps import GoogleMaps
 import datetime
+from werkzeug.contrib.cache import FileSystemCache
 import concerts_bands_API
 import lodging
 from secrets import *
@@ -20,6 +21,12 @@ db = SQLAlchemy(app)
 
 # Set up Flask-GoogleMaps
 GoogleMaps(app, key=GOOGLE_MAPS_API_KEY)
+
+# Set up Werkzeug's FileSystemCache
+cache = FileSystemCache("./cache")
+
+# TODO port to use Memcached server instead?
+
 
 ##########
 # Routes
@@ -43,18 +50,24 @@ def band_search():
         start_city = str(request.form["start_city"])
         max_distance = float(request.form["max_distance"])
 
+        # Catch-22 here... ideally, we store by (unique) id field.
+        # We can't get the id field without doing a query first
+        # For now, generate a key
+        # This won't catch minor spelling/formatting variations
+        cache_key = "{}_{}_{}mi".format(band_query, start_city, max_distance)
+
         # FIRST, we should check our cache to see if we have these results saved
-        # TODO implement caching
+        event_list = cache.get(cache_key)
 
-        # IF WE DO, return that
-
-        # OTHERWISE, make API call
-        # TODO try-except this?
-        event_list = concerts_bands_API.search_by_band(
-            band_name=band_query,
-            origin=start_city,
-            max_distance=max_distance
-        )
+        # If it's not there, make API call
+        if event_list is None:
+            event_list = concerts_bands_API.search_by_band(
+                band_name=band_query,
+                origin=start_city,
+                max_distance=max_distance
+            )
+            # cache for 24 hours
+            cache.set(cache_key, event_list, timeout=60 * 60 * 24)
 
         # TODO query flight prices here?
 
