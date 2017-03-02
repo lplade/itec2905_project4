@@ -10,15 +10,18 @@ from secrets import *
 class Concert:
     # data structure to store retrieved json data about a single event
 
-    def __init__(self, title, date, region_name, city_name, country_name,
-                 longitude, latitude):
-        title = title
-        date = date  # what format is this stored in?
-        region_name = region_name  # State, in USA
-        city_name = city_name
-        country_name = country_name
-        longitude = longitude
-        latitude = latitude
+    def __init__(self, event_id, title, date, region_name, city_name,
+                 country_name, longitude, latitude, venue_name, venue_address):
+        self.event_id = event_id
+        self.title = title
+        self.date = date  # what format is this stored in?
+        self.region_name = region_name  # State, in USA
+        self.city_name = city_name
+        self.country_name = country_name
+        self.longitude = longitude
+        self.latitude = latitude
+        self.venue_name = venue_name
+        self.venue_address = venue_address
         # TODO add venue_name and venue_address
 
 
@@ -60,13 +63,15 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
         for newValue in iter(value):
             # This loops each key and gets the value that it is needed
             for item in newValue:
+                event_id = str(newValue['id'])
                 title = str(newValue['title'])
                 state = str(newValue['region_name'])
                 city = str(newValue['city_name'])
                 country = str(newValue['country_name'])
                 longitude = float(newValue['longitude'])
                 latitude = float(newValue['latitude'])
-                # TODO get venue_name and venue_address for hotels
+                venue_name = str(newValue['venue_name'])
+                venue_address = str(newValue['venue_address'])
                 # TODO we need to get the event date too!
                 # TODO url? I didn't think that the url is necessary because we need
                 # the one for the hotels and travel options only.
