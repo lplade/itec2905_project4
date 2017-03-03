@@ -24,7 +24,7 @@ class Concert:
         self.venue_address = venue_address
 
 
-def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
+def search_by_band(band_name, origin, max_distance):
     """
 
     :param band_name: name of artist we are searching for
@@ -33,16 +33,13 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
     :return: list of Concert
     """
 
-    # The 'category' argument, also called 'c', is used to search within
-    # a category.
-
     # We have to use .urlencode to properly encode spaces and such into ASCII
     # URL string
     params = urllib.parse.urlencode(({
         'q': band_name,
-        #'location': origin,
-        #'within': max_distance,
-        #'units': 'mi',
+        'location': origin,
+        # 'within': max_distance,
+        # 'units': 'mi',
         'app_key': EVENTFUL_KEY
         # TODO add any other request parameters here
     }))
@@ -60,42 +57,18 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
 
         # This loop has to be iter because is a list.
         for newValue in iter(value):
-            # This loops each key and gets the value that it is needed
-            for item in newValue:
-                event_id = str(newValue['id'])
-                title = str(newValue['title'])
-                state = str(newValue['region_name'])
-                city = str(newValue['city_name'])
-                country = str(newValue['country_name'])
-                longitude = float(newValue['longitude'])
-                latitude = float(newValue['latitude'])
-                venue_name = str(newValue['venue_name'])
-                venue_address = str(newValue['venue_address'])
-                date = str(newValue['start_time'])
-                # TODO url? I didn't think that the url is necessary because we need
-                # the one for the hotels and travel options only.
-                    # I agree, Boris
-
-            event_object = Concert(event_id=event_id,
-                                   title=title,
-                                   date=date,
-                                   region_name=state,
-                                   city_name=city,
-                                   country_name=country,
-                                   longitude=longitude,
-                                   latitude=latitude,
-                                   venue_name=venue_name,
-                                   venue_address=venue_address)
+            event_object = Concert(event_id=str(newValue['id']),
+                                    title=str(newValue['title']),
+                                    date=str(newValue['start_time']),
+                                    region_name=str(newValue['region_name']),
+                                    city_name=str(newValue['city_name']),
+                                    country_name=str(newValue['country_name']),
+                                    longitude=float(newValue['latitude']),
+                                    latitude = float(newValue['latitude']),
+                                    venue_name=str(newValue['venue_name']),
+                                    venue_address=str(newValue['venue_address']))
 
             event_list.append(event_object)
-
-            # # This is to keep track  of the number of concerts.
-            # # TODO This block is to check the api function, uncomment to see it running.
-            # for concert in event_list:
-            #     # Print staments
-            #     print('\nId: ', event_id,'\nConcert: ', title, '\nCountry: ', country, '\nState: ',
-            #           state, '\nCity: ', city, '\nlongitude = ', longitude,
-            #           '\nlatitude = ', latitude, '\ndate = ', date, '\nvenue_name = ', venue_name)
 
     return event_list
 
