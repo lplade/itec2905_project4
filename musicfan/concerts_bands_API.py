@@ -40,9 +40,9 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
     # URL string
     params = urllib.parse.urlencode(({
         'q': band_name,
-        'location': origin,
-        'within': max_distance,
-        'units': 'mi',
+        #'location': origin,
+        #'within': max_distance,
+        #'units': 'mi',
         'app_key': EVENTFUL_KEY
         # TODO add any other request parameters here
     }))
@@ -76,18 +76,18 @@ def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
                 # the one for the hotels and travel options only.
                     # I agree, Boris
 
-                event_object = Concert(event_id=event_id,
-                                       title=title,
-                                       date=date,
-                                       region_name=state,
-                                       city_name=city,
-                                       country_name=country,
-                                       longitude=longitude,
-                                       latitude=latitude,
-                                       venue_name=venue_name,
-                                       venue_address=venue_address)
+            event_object = Concert(event_id=event_id,
+                                   title=title,
+                                   date=date,
+                                   region_name=state,
+                                   city_name=city,
+                                   country_name=country,
+                                   longitude=longitude,
+                                   latitude=latitude,
+                                   venue_name=venue_name,
+                                   venue_address=venue_address)
 
-                event_list.append(event_object)
+            event_list.append(event_object)
 
             # # This is to keep track  of the number of concerts.
             # # TODO This block is to check the api function, uncomment to see it running.
