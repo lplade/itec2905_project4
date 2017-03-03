@@ -24,7 +24,6 @@ GoogleMaps(app, key=GOOGLE_MAPS_API_KEY)
 
 # Set up Werkzeug's FileSystemCache
 cache = FileSystemCache("./cache")
-
 # TODO port to use Memcached server instead?
 
 
@@ -67,7 +66,7 @@ def band_search():
                 max_distance=max_distance
             )
             # cache for 24 hours
-            cache.set(cache_key, event_list, timeout=60 * 60 * 24)
+            cache.set(cache_key, event_list, timeout=60 * 60)
 
         # TODO query flight prices here?
 
