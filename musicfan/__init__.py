@@ -8,6 +8,7 @@ from werkzeug.contrib.cache import FileSystemCache
 import concerts_bands_API
 import flightsearch_stub
 import lodging
+import maps_api
 from secrets import *
 
 # any needed Flask configuration can be passed as arguments to this
@@ -48,7 +49,12 @@ def band_search():
         # First parse the input provided by the form
         band_query = str(request.form["band_query"])
         start_city = str(request.form["start_city"])
-        max_distance = float(request.form["max_distance"])
+        max_distance = float(request.form["max_distance"])  # TODO use me
+
+        # Get the coordinates for the start city
+        start_city_latitude, start_city_longitude = \
+            maps_api.find_location_coordinates(start_city)
+        # TODO asynchronous? callback
 
         # Catch-22 here... ideally, we store by (unique) id field.
         # We can't get the id field without doing a query first
@@ -64,12 +70,26 @@ def band_search():
             event_list = concerts_bands_API.search_by_band(
                 band_name=band_query
             )
-            # cache for 24 hours
+            # cache for 1 hour
             cache.set(cache_key, event_list, timeout=60 * 60)
+            # Note that we keep the UNfiltered results cached
+
+        # rebuild the list, filtering by distance
+        new_list = []
+
+        # go in and set the distance on each concert
+        for concert in event_list:
+            concert.set_distance_from_origin(
+                origin_latitude=start_city_latitude,
+                origin_longitude=start_city_longitude
+            )
+            if concert.distance <= max_distance:
+                new_list.append(concert)
+
+        # replace the event list
+        event_list = new_list
 
         # TODO query flight prices here?
-
-        # DO SOMETHING to put this into cache?
 
         # FINALLY, we can return the results to user
         # TODO return proper band name from API call?

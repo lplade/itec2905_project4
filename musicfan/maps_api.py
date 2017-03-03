@@ -12,10 +12,9 @@ def find_location_coordinates(location_string):
     """
     g = geocoder.google(location=location_string, key=GOOGLE_MAPS_API_KEY)
     results = g.json
-    parsed_json = json.loads(results)
 
-    latitude = float(parsed_json['lat'])
-    longitude = float(parsed_json['lng'])
+    latitude = float(results['lat'])
+    longitude = float(results['lng'])
 
     return latitude, longitude
 
