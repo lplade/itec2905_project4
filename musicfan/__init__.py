@@ -62,9 +62,7 @@ def band_search():
         # If it's not there, make API call
         if event_list is None:
             event_list = concerts_bands_API.search_by_band(
-                band_name=band_query,
-                origin=start_city,
-                max_distance=max_distance
+                band_name=band_query
             )
             # cache for 24 hours
             cache.set(cache_key, event_list, timeout=60 * 60)
