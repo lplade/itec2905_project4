@@ -6,6 +6,8 @@ import requests
 # This includes our secret API key
 from secrets import *
 
+from mapdistance import distance
+
 
 class Concert:
     # Note that the band name is not stored here
@@ -22,6 +24,28 @@ class Concert:
         self.latitude = latitude
         self.venue_name = venue_name
         self.venue_address = venue_address
+        self.distance = None
+
+    def set_distance_from_origin(self, origin_longitude, origin_latitude):
+        """
+        Sets the distance to this Concert from the origin
+        :param origin_longitude:
+        :param origin_latitude:
+        :return:
+        """
+        self.distance = \
+            self.find_distance_from_origin(origin_longitude, origin_latitude)
+        return True
+
+    def find_distance_from_origin(self, origin_longitude, origin_latitude):
+        """
+        Standalone function to find distance from origin
+        :param origin_longitude:
+        :param origin_latitude:
+        :return:
+        """
+        return distance(origin_latitude, origin_longitude,
+                        self.latitude, self.longitude)
 
 
 def search_by_band(band_name, origin="Minneapolis, MN", max_distance=500):
