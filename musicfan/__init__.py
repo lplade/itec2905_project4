@@ -6,6 +6,7 @@ from flask_googlemaps import GoogleMaps
 import datetime
 from werkzeug.contrib.cache import FileSystemCache
 import concerts_bands_API
+import flightsearch_stub
 import lodging
 from secrets import *
 
