@@ -1,2 +1,2 @@
-# this is just a placeholer for the flight search API module
+# this is just a placeholder for the flight search API module
 
