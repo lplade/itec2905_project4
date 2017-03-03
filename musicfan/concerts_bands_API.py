@@ -1,7 +1,6 @@
 import urllib.request
 import urllib.parse
 import requests
-# import json
 
 # This includes our secret API key
 from secrets import *
@@ -48,22 +47,19 @@ class Concert:
                         self.latitude, self.longitude)
 
 
-def search_by_band(band_name, origin, max_distance):
+def search_by_band(band_name):
     """
 
     :param band_name: name of artist we are searching for
-    :param origin: city we are starting from
-    :param max_distance: how far are we willing to travel
     :return: list of Concert
     """
+
+    # distance filter is handled by main app now
 
     # We have to use .urlencode to properly encode spaces and such into ASCII
     # URL string
     params = urllib.parse.urlencode(({
         'q': band_name,
-        'location': origin,
-        # 'within': max_distance,
-        # 'units': 'mi',
         'app_key': EVENTFUL_KEY
         # TODO add any other request parameters here
     }))
@@ -82,15 +78,16 @@ def search_by_band(band_name, origin, max_distance):
         # This loop has to be iter because is a list.
         for newValue in iter(value):
             event_object = Concert(event_id=str(newValue['id']),
-                                    title=str(newValue['title']),
-                                    date=str(newValue['start_time']),
-                                    region_name=str(newValue['region_name']),
-                                    city_name=str(newValue['city_name']),
-                                    country_name=str(newValue['country_name']),
-                                    longitude=float(newValue['latitude']),
-                                    latitude = float(newValue['latitude']),
-                                    venue_name=str(newValue['venue_name']),
-                                    venue_address=str(newValue['venue_address']))
+                                   title=str(newValue['title']),
+                                   date=str(newValue['start_time']),
+                                   region_name=str(newValue['region_name']),
+                                   city_name=str(newValue['city_name']),
+                                   country_name=str(newValue['country_name']),
+                                   longitude=float(newValue['latitude']),
+                                   latitude=float(newValue['latitude']),
+                                   venue_name=str(newValue['venue_name']),
+                                   venue_address=str(newValue['venue_address'])
+                                   )
 
             event_list.append(event_object)
 
