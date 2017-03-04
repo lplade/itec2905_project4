@@ -1,6 +1,7 @@
 import requests
 import json
 from skyscanner_resources.skyscanner_endpoints import SkyScannerEndpoints
+
 # create skyscanner class, download place data, create json resources on local machine
 
 
