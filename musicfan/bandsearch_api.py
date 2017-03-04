@@ -82,22 +82,27 @@ def search_by_band(band_name):
         # First, check if the band is actually playing at this event
         # This is to eliminate cover bands, tribute acts, etc.
         artist_is_playing_here = False
-        performer_list = event['performers']['performer']
+        try:
+            performer_list = event['performers']['performer']
+            # Sometimes this is a list, sometimes it's a single dictionary
+            if isinstance(performer_list, dict):
+                # wrap in in a list
+                performer_list = [performer_list]
 
-        # Sometimes this is a list, sometimes it's a single dictionary
-        if isinstance(performer_list, dict):
-            # wrap in in a list
-            performer_list = [performer_list]
+            for performer in performer_list:
+                # TODO figure out how to get not quite exact matches
+                if performer['name'] == band_name:
+                    logging.debug("Found {} playing at {}"
+                                  .format(band_name, event['title']))
+                    artist_is_playing_here = True
+                else:
+                    logging.debug("{} is not {}"
+                                  .format(performer['name'], band_name))
+        except TypeError:
+            # Sometimes the performers list is empty
+            logging.warning("Empty performer list")
 
-        for performer in performer_list:
-            # TODO figure out how to get not quite exact matches
-            if performer['name'] == band_name:
-                logging.debug("Found {} playing at {}"
-                              .format(band_name, event['title']))
-                artist_is_playing_here = True
-            else:
-                logging.debug("{} is not {}"
-                              .format(performer['name'], band_name))
+
 
         if artist_is_playing_here:
             # If the band is actually playing here, we can add
