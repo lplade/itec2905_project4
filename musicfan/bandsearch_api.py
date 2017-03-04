@@ -1,7 +1,7 @@
 import urllib.request
 import urllib.parse
 import requests
-# import json  # useful for debugging
+import json  # useful for debugging
 import logging
 
 # This includes our secret API key
@@ -71,6 +71,9 @@ def search_by_band(band_name):
     # Get the data in a json format
     json_data = requests.get(api_url).json()
 
+    # let's get a better look at this
+    print(json.dumps(json_data, indent=4))
+
     # initialize an empty list
     event_list = []
 
@@ -102,8 +105,6 @@ def search_by_band(band_name):
             # Sometimes the performers list is empty
             logging.warning("Empty performer list")
 
-
-
         if artist_is_playing_here:
             # If the band is actually playing here, we can add
             # this event to the list
@@ -126,13 +127,13 @@ def search_by_band(band_name):
 
 
 
-
 def main():
     band = input("What band to search for? ")
 
-    # concert_list = search_by_band(band)
+    concert_list = search_by_band(band)
 
-    # TODO simple interactive console test routine should go here
+    for concert in concert_list:
+        print(concert.title)
 
 if __name__ == '__main__':
     main()

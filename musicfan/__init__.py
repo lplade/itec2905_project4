@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, request, flash, redirect, url_for, abort
+from flask import Flask, render_template, request, \
+    flash, redirect, url_for, abort
 from flask_googlemaps import GoogleMaps
 import datetime
 import logging
@@ -42,12 +43,15 @@ def retrieve_full_event_list(band_name):
 
     # If it's not there, make API call
     if event_list is None:
+        logging.debug("Retrieving {} from web".format(cache_key))
         event_list = bandsearch_api.search_by_band(
             band_name=band_name
         )
         # cache for 1 hour
         cache.set(cache_key, event_list, timeout=60 * 60)
         # Note that we keep the UNfiltered results cached
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return event_list
 
@@ -79,27 +83,30 @@ def retrieve_full_hotel_list(*args):
     """
     # see comments from event_list above
     cache_key = "places_{}_{}_{}_{}".format(*args)
-    logging.debug("Retrieving {}".format(cache_key))
     rs = cache.get(cache_key)
     if rs is None:
+        logging.debug("Retrieving {} from web".format(cache_key))
         rs = lodging_api.get_query_lodging(*args)
         cache.set(cache_key, rs, timeout=60 * 60)
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return rs
 
 
 def retrieve_place_details(place):
     cache_key = "hotel_{}".format(place.place_id)
-    logging.debug("Retrieving details for {}".format(cache_key))
     place_with_details = cache.get(cache_key)
     if place_with_details is None:
+        logging.debug("Retrieving details for {} from web".format(cache_key))
         # Goes out and retrieves all details
         place.get_details()
         place_with_details = place
         cache.set(cache_key, place_with_details, timeout=60 * 60)
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return place_with_details
-
 
 
 ##########
@@ -159,7 +166,7 @@ def hotel_search():
         event_id = str(request.form["event_id"])
         band_name = str(request.form["band_name"])
         search_radius = int(request.form["search_radius"])
-        cheap_limit = int(request.form["cheap_limit"])
+        # cheap_limit = int(request.form["cheap_limit"])
 
         # And here is where we probably SHOULD have stored this in a real DB
         event_list = retrieve_full_event_list(band_name)
