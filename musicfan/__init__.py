@@ -6,9 +6,9 @@ from flask_googlemaps import GoogleMaps
 import datetime
 import logging
 from werkzeug.contrib.cache import FileSystemCache
-import concerts_bands_API
+import bandsearch_api
 import flightsearch_stub
-import lodging
+import lodging_api
 import maps_api
 from secrets import *
 
@@ -71,7 +71,7 @@ def band_search():
 
         # If it's not there, make API call
         if event_list is None:
-            event_list = concerts_bands_API.search_by_band(
+            event_list = bandsearch_api.search_by_band(
                 band_name=band_query
             )
             # cache for 1 hour
