@@ -50,7 +50,15 @@
                             </td>
                             <td>{{ '%.1f' % event.distance }} miles</td>
                             <td><!--TODO some data from flight module--></td>
-                            <td><a href="" class="btn btn-default">Let's go!</a></td>
+                            <td>
+                                <form action="/hotelsearch" method="post">
+                                    <input type="hidden" name="event_id" value="{{ event.event_id }}">
+                                    <input type="hidden" name="band_name" value="{{ band_name }}">
+                                    <input type="hidden" name="search_radius" value="3200">
+                                    <input type="hidden" name="cheap_limit" value="4">
+                                    <button type="submit" class="btn btn-default">Let's go!</button>
+                                </form>
+                            </td>
                         </tr>
                     {% else %}
                         <tr><td>No events found!</td></tr>
