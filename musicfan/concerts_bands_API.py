@@ -2,6 +2,7 @@ import urllib.request
 import urllib.parse
 import requests
 # import json  # useful for debugging
+import logging
 
 # This includes our secret API key
 from secrets import *
@@ -92,13 +93,12 @@ def search_by_band(band_name):
             print(performer['name'])
             # TODO figure out how to get not quite exact matches
             if performer['name'] == band_name:
-                #print("Found {} playing at {}"
-                #      .format(band_name, event['title']))
+                logging.debug("Found {} playing at {}"
+                              .format(band_name, event['title']))
                 artist_is_playing_here = True
             else:
-                #print("{} is not {}"
-                #      .format(performer['name'], band_name))
-                pass
+                logging.debug("{} is not {}"
+                              .format(performer['name'], band_name))
 
         if artist_is_playing_here:
             # If the band is actually playing here, we can add
@@ -125,7 +125,6 @@ def main():
     band = input("What band to search for? ")
 
     # concert_list = search_by_band(band)
-    search_by_band(band)
 
     # TODO simple interactive console test routine should go here
 

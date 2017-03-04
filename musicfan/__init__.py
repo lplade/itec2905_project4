@@ -4,12 +4,16 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_googlemaps import GoogleMaps
 import datetime
+import logging
 from werkzeug.contrib.cache import FileSystemCache
 import concerts_bands_API
 import flightsearch_stub
 import lodging
 import maps_api
 from secrets import *
+
+# Sets the verbosity of console logging
+logging.basicConfig(level=logging.DEBUG)
 
 # any needed Flask configuration can be passed as arguments to this
 app = Flask(__name__)
