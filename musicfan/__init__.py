@@ -152,6 +152,13 @@ def hotel_search():
                 cheap_limit=cheap_limit
             )
 
+            hotel_list = []
+
+            for place in rs.places:
+                # We have to make another query to get the full details
+                place.get_details()
+                hotel_list.append(place)
+
             return render_template(
                 "hotel_search.html",
                 event_id=event_id,
@@ -159,7 +166,7 @@ def hotel_search():
                 search_radius=search_radius,
                 cheap_limit=cheap_limit,
                 concert=selected_concert,
-                hotel_results=rs
+                hotel_list=hotel_list
             )
 
     else:

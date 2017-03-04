@@ -7,7 +7,28 @@
         <h1>Hotel search</h1>
     </div>
     <div class="row">
-        <pre>{{ rs }}</pre>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Hotel</th>
+                        <th>Rating</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                    </tr>
+                    {% for place in hotel_list %}
+                        <tr>
+                            <td>{{ place.name }}</td>
+                            <td>{{ place.rating }}</td>
+                            <td>{{ place.formatted_address }}</td>
+                            <td>{{ place.local_phone_number }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td>No hotels found!</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block custom_js %}
