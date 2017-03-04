@@ -1,6 +1,7 @@
 import urllib.request
 import urllib.parse
 import requests
+# import json  # useful for debugging
 
 # This includes our secret API key
 from secrets import *
@@ -72,24 +73,50 @@ def search_by_band(band_name):
     # initialize an empty list
     event_list = []
 
-    # First loop, gets the first keys, then it gets passed to the next one.
-    for key, value in json_data['events'].items():
+    # Drill two layers into JSON to get event list
+    raw_event_list = json_data['events']['event']
 
-        # This loop has to be iter because is a list.
-        for newValue in iter(value):
-            event_object = Concert(event_id=str(newValue['id']),
-                                   title=str(newValue['title']),
-                                   date=str(newValue['start_time']),
-                                   region_name=str(newValue['region_name']),
-                                   city_name=str(newValue['city_name']),
-                                   country_name=str(newValue['country_name']),
-                                   longitude=float(newValue['latitude']),
-                                   latitude=float(newValue['latitude']),
-                                   venue_name=str(newValue['venue_name']),
-                                   venue_address=str(newValue['venue_address'])
-                                   )
+    # Loop over this entire list of retrieved events
+    for event in raw_event_list:
+        # First, check if the band is actually playing at this event
+        # This is to eliminate cover bands, tribute acts, etc.
+        artist_is_playing_here = False
+        performer_list = event['performers']['performer']
 
-            event_list.append(event_object)
+        # Sometimes this is a list, sometimes it's a single dictionary
+        if isinstance(performer_list, dict):
+            # wrap in in a list
+            performer_list = [performer_list]
+
+        for performer in performer_list:
+            print(performer['name'])
+            # TODO figure out how to get not quite exact matches
+            if performer['name'] == band_name:
+                #print("Found {} playing at {}"
+                #      .format(band_name, event['title']))
+                artist_is_playing_here = True
+            else:
+                #print("{} is not {}"
+                #      .format(performer['name'], band_name))
+                pass
+
+        if artist_is_playing_here:
+            # If the band is actually playing here, we can add
+            # this event to the list
+            concert = Concert(
+                event_id=str(event['id']),
+                title=str(event['title']),
+                date=str(event['start_time']),
+                region_name=str(event['region_name']),
+                city_name=str(event['city_name']),
+                country_name=str(event['country_name']),
+                longitude=float(event['longitude']),
+                latitude=float(event['latitude']),
+                venue_name=str(event['venue_name']),
+                venue_address=str(event['venue_address'])
+            )
+
+            event_list.append(concert)
 
     return event_list
 
