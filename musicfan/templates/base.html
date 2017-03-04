@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="/css/eventful.css">
     <link rel="stylesheet" href="/css/sticky-footer.css">
     <link rel="stylesheet" href="/css/musicfan.css">
+
+    <!-- This stuff is for favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
     {% block head %}
     {% endblock %}
 </head>
@@ -63,11 +72,25 @@
 <footer class="footer">
     {% block footer %}
         <div class="container">
-            <div class="eventful-badge eventful-small">
-                <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
-                alt="Local Events, Concerts, Tickets" class="eventful-pad">
-                <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div>
+                        Icon made by <a href="http://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="eventful-badge eventful-small">
+                        <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+                        alt="Local Events, Concerts, Tickets" class="eventful-pad">
+                        <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+                    </div>
+                </div>
             </div>
+
+
+
         </div>
     {% endblock %}
    </footer>
