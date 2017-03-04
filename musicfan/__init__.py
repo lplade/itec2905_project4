@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, abort
 from flask_googlemaps import GoogleMaps
 import datetime
 import logging
@@ -26,6 +26,82 @@ cache = FileSystemCache("./cache")
 
 
 ##########
+# Helper functions
+##########
+
+def retrieve_full_event_list(band_name):
+    # Catch-22 here... ideally, we store by (unique) id field.
+    # We can't get the id field without doing a query first
+    # For now, generate a key
+    # This won't catch minor spelling/formatting variations
+    cache_key = "band_{}".format(band_name)
+
+    # FIRST, we should check our cache to see if we have these results saved
+    event_list = cache.get(cache_key)
+
+    # If it's not there, make API call
+    if event_list is None:
+        event_list = bandsearch_api.search_by_band(
+            band_name=band_name
+        )
+        # cache for 1 hour
+        cache.set(cache_key, event_list, timeout=60 * 60)
+        # Note that we keep the UNfiltered results cached
+
+    return event_list
+
+
+def filter_event_list_by_distance(
+        event_list, max_distance, start_city_latitude, start_city_longitude):
+
+    # rebuild the list, filtering by distance
+    new_list = []
+
+    # go in and set the distance on each concert
+    for concert in event_list:
+        concert.set_distance_from_origin(
+            origin_latitude=start_city_latitude,
+            origin_longitude=start_city_longitude
+        )
+        if concert.distance <= max_distance:
+            new_list.append(concert)
+
+    # return a list that doesn't have distant entries
+    return new_list
+
+
+def retrieve_full_hotel_list(*args):
+    """
+    WRITE WORDS HERE
+    :param args: city, state, country, radius
+    :return: GooglePlacesSearchResult
+    """
+    # see comments from event_list above
+    cache_key = "places_{}_{}_{}_{}".format(*args)
+    logging.debug("Retrieving {}".format(cache_key))
+    rs = cache.get(cache_key)
+    if rs is None:
+        rs = lodging_api.get_query_lodging(*args)
+        cache.set(cache_key, rs, timeout=60 * 60)
+
+    return rs
+
+
+def retrieve_place_details(place):
+    cache_key = "hotel_{}".format(place.place_id)
+    logging.debug("Retrieving details for {}".format(cache_key))
+    place_with_details = cache.get(cache_key)
+    if place_with_details is None:
+        # Goes out and retrieves all details
+        place.get_details()
+        place_with_details = place
+        cache.set(cache_key, place_with_details, timeout=60 * 60)
+
+    return place_with_details
+
+
+
+##########
 # Routes
 ##########
 
@@ -45,45 +121,19 @@ def band_search():
         # First parse the input provided by the form
         band_query = str(request.form["band_query"])
         start_city = str(request.form["start_city"])
-        max_distance = float(request.form["max_distance"])  # TODO use me
+        max_distance = float(request.form["max_distance"])
 
         # Get the coordinates for the start city
         start_city_latitude, start_city_longitude = \
             maps_api.find_location_coordinates(start_city)
-        # TODO asynchronous? callback
+        # TODO asynchronous? callback?
 
-        # Catch-22 here... ideally, we store by (unique) id field.
-        # We can't get the id field without doing a query first
-        # For now, generate a key
-        # This won't catch minor spelling/formatting variations
-        cache_key = "{}_{}_{}mi".format(band_query, start_city, max_distance)
-
-        # FIRST, we should check our cache to see if we have these results saved
-        event_list = cache.get(cache_key)
-
-        # If it's not there, make API call
-        if event_list is None:
-            event_list = bandsearch_api.search_by_band(
-                band_name=band_query
-            )
-            # cache for 1 hour
-            cache.set(cache_key, event_list, timeout=60 * 60)
-            # Note that we keep the UNfiltered results cached
-
-        # rebuild the list, filtering by distance
-        new_list = []
-
-        # go in and set the distance on each concert
-        for concert in event_list:
-            concert.set_distance_from_origin(
-                origin_latitude=start_city_latitude,
-                origin_longitude=start_city_longitude
-            )
-            if concert.distance <= max_distance:
-                new_list.append(concert)
+        # Query the cache or the API
+        event_list = retrieve_full_event_list(band_query)
 
         # replace the event list
-        event_list = new_list
+        event_list = filter_event_list_by_distance(
+            event_list, max_distance, start_city_latitude, start_city_longitude)
 
         # TODO query flight prices here?
 
@@ -92,8 +142,6 @@ def band_search():
         total_results = len(event_list)
 
         # TODO do any other processing of the results in here
-
-        # TODO figure out distance based on lat/long here?
 
         return render_template("event_results.html",
                                event_list=event_list,
@@ -106,16 +154,56 @@ def band_search():
 
 @app.route("/hotelsearch", methods=["POST"])
 def hotel_search():
+    if request.method == "POST":
+        event_id = str(request.form["event_id"])
+        band_name = str(request.form["band_name"])
+        search_radius = int(request.form["search_radius"])
+        cheap_limit = int(request.form["cheap_limit"])
 
-    pass
-    # TODO write this
-    # rs = lodging.get_query_lodging(
-    #     city=city,
-    #     state=state,
-    #     country=country,
-    #     radius=radius,
-    #     cheap_limit=cheap_limit
-    # )
+        # And here is where we probably SHOULD have stored this in a real DB
+        event_list = retrieve_full_event_list(band_name)
+
+        # Loop over the WHOLE LIST of cached events to find the right event
+        for concert in event_list:
+            if concert.event_id == event_id:
+                selected_concert = concert
+                break
+
+        try:  # make sure selected_concert just got set
+            selected_concert
+        except NameError:
+            logging.error("Unable to retrieve previously retrieved event")
+            abort(500)
+        else:
+            # TODO cache
+            full_list = retrieve_full_hotel_list(
+                selected_concert.city_name,
+                selected_concert.region_name,
+                selected_concert.country_name,
+                search_radius
+            )
+
+            hotel_list = []
+
+            for place in full_list.places:
+                # We have to make another query to get the full details
+                detailed_place = retrieve_place_details(place)
+                # logging.debug(detailed_place)
+                hotel_list.append(detailed_place)
+
+            return render_template(
+                "hotel_search.html",
+                event_id=event_id,
+                band_name=band_name,
+                search_radius=search_radius,
+                cheap_limit=cheap_limit,
+                concert=selected_concert,
+                hotel_list=hotel_list
+            )
+
+    else:
+        # We should not access this route by GET, so redirect
+        return redirect("/", code=302)
 
 
 # Leave this as the last route

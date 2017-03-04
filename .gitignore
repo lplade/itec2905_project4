@@ -4,4 +4,3 @@ env_p4
 musicfan/secrets.py
 musicfan/cache/*
 __pycache__
-/env_p4

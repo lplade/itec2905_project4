@@ -120,6 +120,8 @@ def search_by_band(band_name):
     return event_list
 
 
+
+
 def main():
     band = input("What band to search for? ")
 
