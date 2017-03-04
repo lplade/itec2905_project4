@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Music Fan - Band search results{% endblock %}
 {% block content %}
-    <h1 class="page-header">Event search results</h1>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-4">
+             <img src="/img/flaticon_travel_800px.png" alt="airplane over globe" class="img-responsive">
+            </div>
+            <div class="col-md-8 center-block">
+                <h1>Event search results</h1>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <i>Found {{ total_results }} events for {{ band_name }} </i>
         </div>
+
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -23,20 +33,24 @@
                             <div>Country</div>
                         </th>
                         <th>Distance</th>
+                        <th>Flight info</th>
+                        <th><!--column placeholder--></th>
                     </tr>
-                    {% for event in event_list %}
+                    {% for event in event_list|sort(attribute='date') %}
                         <tr>
                             <td>{{ event.date }}</td>
                             <td>
-                                <div>{{ event.title }}</div>
-                                <div>{{ event.venue_name }}</div>
+                                <div><strong>{{ event.title }}</strong></div>
+                                <div class="small">at {{ event.venue_name }}</div>
                             </td>
                             <td>
                                 <div>{{ event.city_name }}</div>
-                                <div>{{ event.region_name }}</div>
-                                <div>{{ event.country_name }}</div>
+                                <div class="small">{{ event.region_name }}</div>
+                                <div class="small">{{ event.country_name }}</div>
                             </td>
-                            <td>{{ event.distance }}</td>
+                            <td>{{ '%.1f' % event.distance }} miles</td>
+                            <td><!--TODO some data from flight module--></td>
+                            <td><a href="" class="btn btn-default">Let's go!</a></td>
                         </tr>
                     {% else %}
                         <tr><td>No events found!</td></tr>
