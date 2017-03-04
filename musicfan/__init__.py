@@ -45,12 +45,12 @@ def band_search():
         # First parse the input provided by the form
         band_query = str(request.form["band_query"])
         start_city = str(request.form["start_city"])
-        max_distance = float(request.form["max_distance"])  # TODO use me
+        max_distance = float(request.form["max_distance"])
 
         # Get the coordinates for the start city
         start_city_latitude, start_city_longitude = \
             maps_api.find_location_coordinates(start_city)
-        # TODO asynchronous? callback
+        # TODO asynchronous? callback?
 
         # Catch-22 here... ideally, we store by (unique) id field.
         # We can't get the id field without doing a query first
@@ -92,8 +92,6 @@ def band_search():
         total_results = len(event_list)
 
         # TODO do any other processing of the results in here
-
-        # TODO figure out distance based on lat/long here?
 
         return render_template("event_results.html",
                                event_list=event_list,
