@@ -12,6 +12,7 @@
                 <table class="table table-hover">
                     <tr>
                         <th>Hotel</th>
+                        <th>Distance</th>
                         <th>Rating</th>
                         <th>Address</th>
                         <th>Phone</th>
@@ -19,6 +20,7 @@
                     {% for place in hotel_list %}
                         <tr>
                             <td>{{ place.name }}</td>
+                            <td><!--figure out distance--></td>
                             <td>{{ place.rating }}</td>
                             <td>{{ place.formatted_address }}</td>
                             <td>{{ place.local_phone_number }}</td>

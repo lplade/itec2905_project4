@@ -70,6 +70,37 @@ def filter_event_list_by_distance(
     return new_list
 
 
+def retrieve_full_hotel_list(*args):
+    """
+    WRITE WORDS HERE
+    :param args: city, state, country, radius
+    :return: GooglePlacesSearchResult
+    """
+    # see comments from event_list above
+    cache_key = "places_{}_{}_{}_{}".format(*args)
+    logging.debug("Retrieving {}".format(cache_key))
+    rs = cache.get(cache_key)
+    if rs is None:
+        rs = lodging_api.get_query_lodging(*args)
+        cache.set(cache_key, rs, timeout=60 * 60)
+
+    return rs
+
+
+def retrieve_place_details(place):
+    cache_key = "hotel_{}".format(place.place_id)
+    logging.debug("Retrieving details for {}".format(cache_key))
+    place_with_details = cache.get(cache_key)
+    if place_with_details is None:
+        # Goes out and retrieves all details
+        place.get_details()
+        place_with_details = place
+        cache.set(cache_key, place_with_details, timeout=60 * 60)
+
+    return place_with_details
+
+
+
 ##########
 # Routes
 ##########
@@ -144,20 +175,21 @@ def hotel_search():
             logging.error("Unable to retrieve previously retrieved event")
             abort(500)
         else:
-            rs = lodging_api.get_query_lodging(
-                city=selected_concert.city_name,
-                state=selected_concert.region_name,
-                country=selected_concert.country_name,
-                radius=search_radius,
-                cheap_limit=cheap_limit
+            # TODO cache
+            full_list = retrieve_full_hotel_list(
+                selected_concert.city_name,
+                selected_concert.region_name,
+                selected_concert.country_name,
+                search_radius
             )
 
             hotel_list = []
 
-            for place in rs.places:
+            for place in full_list.places:
                 # We have to make another query to get the full details
-                place.get_details()
-                hotel_list.append(place)
+                detailed_place = retrieve_place_details(place)
+                # logging.debug(detailed_place)
+                hotel_list.append(detailed_place)
 
             return render_template(
                 "hotel_search.html",
