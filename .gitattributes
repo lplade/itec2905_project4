@@ -1,0 +1,7 @@
+# Don't give us credit for bootstrap files
+musicfan/static/css/bootstrap* linguist-vendored=false
+musicfan/static/js/bootstrap* linguist-vendored=false
+musicfan/static/js/npm.js linguist-vendored=false
+musicfan/static/fonts/glyphicons* linguist-vendored=false
+musicfan/static/locales/bootstrap* linguist-vendored=false
+
