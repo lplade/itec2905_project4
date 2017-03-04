@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    Music Fan - Lodging results near {{ concert.venue_name }}
+{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h1>Hotel search</h1>
+    </div>
+    <div class="row">
+        <pre>{{ rs }}</pre>
+    </div>
+{% endblock %}
+{% block custom_js %}
+<!-- put/load any scripts that are specific to this page here -->
+{% endblock %}
