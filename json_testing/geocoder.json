@@ -1,0 +1,100 @@
+{
+    "results": [
+        {
+            "address_components": [
+                {
+                    "long_name": "199",
+                    "short_name": "199",
+                    "types": [
+                        "street_number"
+                    ]
+                },
+                {
+                    "long_name": "West Kellogg Boulevard",
+                    "short_name": "W Kellogg Blvd",
+                    "types": [
+                        "route"
+                    ]
+                },
+                {
+                    "long_name": "Northwestern Precinct",
+                    "short_name": "Northwestern Precinct",
+                    "types": [
+                        "neighborhood",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Saint Paul",
+                    "short_name": "St Paul",
+                    "types": [
+                        "locality",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Ramsey County",
+                    "short_name": "Ramsey County",
+                    "types": [
+                        "administrative_area_level_2",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Minnesota",
+                    "short_name": "MN",
+                    "types": [
+                        "administrative_area_level_1",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "United States",
+                    "short_name": "US",
+                    "types": [
+                        "country",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "55102",
+                    "short_name": "55102",
+                    "types": [
+                        "postal_code"
+                    ]
+                },
+                {
+                    "long_name": "1200",
+                    "short_name": "1200",
+                    "types": [
+                        "postal_code_suffix"
+                    ]
+                }
+            ],
+            "formatted_address": "199 W Kellogg Blvd, St Paul, MN 55102, USA",
+            "geometry": {
+                "location": {
+                    "lat": 44.9448954,
+                    "lng": -93.1007264
+                },
+                "location_type": "APPROXIMATE",
+                "viewport": {
+                    "northeast": {
+                        "lat": 44.9462443802915,
+                        "lng": -93.09937741970849
+                    },
+                    "southwest": {
+                        "lat": 44.9435464197085,
+                        "lng": -93.10207538029151
+                    }
+                }
+            },
+            "place_id": "ChIJKWoZQy0rs1IRtRUkSWY5e18",
+            "types": [
+                "establishment",
+                "point_of_interest"
+            ]
+        }
+    ],
+    "status": "OK"
+}

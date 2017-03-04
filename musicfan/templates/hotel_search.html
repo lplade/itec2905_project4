@@ -3,8 +3,16 @@
     Music Fan - Lodging results near {{ concert.venue_name }}
 {% endblock %}
 {% block content %}
-    <div class="page-header">
-        <h1>Hotel search</h1>
+<div class="page-header">
+        <div class="row">
+            <div class="col-md-4">
+             <img src="/img/flaticon_bed_800px.png" alt="a cozy bed" class="img-responsive">
+            </div>
+            <div class="col-md-8 center-block">
+                <h1>Hotel search</h1>
+                <p>Lodging near {{ concert.venue_name }}</p>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -14,16 +22,27 @@
                         <th>Hotel</th>
                         <th>Distance</th>
                         <th>Rating</th>
-                        <th>Address</th>
-                        <th>Phone</th>
+                        <th>Price</th>
+                        <th>Info</th>
+
                     </tr>
-                    {% for place in hotel_list %}
+                    {% for place_tuple in hotel_list %}
                         <tr>
-                            <td>{{ place.name }}</td>
-                            <td><!--figure out distance--></td>
-                            <td>{{ place.rating }}</td>
-                            <td>{{ place.formatted_address }}</td>
-                            <td>{{ place.local_phone_number }}</td>
+                            <td>{{ place_tuple[0].name }}</td>
+                            <td>{{ '%.1f' % place_tuple[1] }} mi</td>
+                            <td>{{ place_tuple[0].rating }}</td>
+                            <td>
+                                {% if place_tuple[0].details['price_level'] %}
+                                    {{  place_tuple[0].details['price_level'] }}
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class>{{ place_tuple[0].vicinity }}</div>
+                                <div class="small">Ph: {{ place_tuple[0].local_phone_number }}</div>
+                            </td>
+
                         </tr>
                     {% else %}
                         <tr><td>No hotels found!</td></tr>

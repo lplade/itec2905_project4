@@ -9,6 +9,7 @@ import bandsearch_api
 import flightsearch_stub
 import lodging_api
 import maps_api
+import mapdistance
 from secrets import *
 
 # Sets the verbosity of console logging
@@ -183,20 +184,38 @@ def hotel_search():
                 search_radius
             )
 
+            # This is a list of tuples containing:
+            # 1. place data
+            # 2. this distance to the venue
             hotel_list = []
 
             for place in full_list.places:
                 # We have to make another query to get the full details
                 detailed_place = retrieve_place_details(place)
-                # logging.debug(detailed_place)
-                hotel_list.append(detailed_place)
+
+                # price_limit is at place.details['price_limit'],
+                # BUT not all entries have this key.
+                # So we can't reliably filter by price?
+
+                # figure out the distance from the venue
+                # TODO use Google travel matrix API instead
+                distance = mapdistance.distance(
+                    concert.latitude,
+                    concert.longitude,
+                    float(place.geo_location['lat']),
+                    float(place.geo_location['lng'])
+                )
+
+                hotel_list.append((detailed_place, distance))
+
+            # sort the hotel list by distance
+            hotel_list = sorted(hotel_list, key=lambda x: x[1])
 
             return render_template(
                 "hotel_search.html",
                 event_id=event_id,
                 band_name=band_name,
                 search_radius=search_radius,
-                cheap_limit=cheap_limit,
                 concert=selected_concert,
                 hotel_list=hotel_list
             )
