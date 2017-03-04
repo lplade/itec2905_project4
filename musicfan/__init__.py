@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 from flask import Flask, render_template, request, flash, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
 from flask_googlemaps import GoogleMaps
 import datetime
 import logging
@@ -17,13 +16,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 # any needed Flask configuration can be passed as arguments to this
 app = Flask(__name__)
-
-# We'll configure the SQLalchemy stuff here for the moment
-# TODO split ORM stuff into its own file
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///musicfan.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # this squelches the
-#                                                       console warning
-db = SQLAlchemy(app)
 
 # Set up Flask-GoogleMaps
 GoogleMaps(app, key=GOOGLE_MAPS_API_KEY)

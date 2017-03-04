@@ -90,7 +90,6 @@ def search_by_band(band_name):
             performer_list = [performer_list]
 
         for performer in performer_list:
-            print(performer['name'])
             # TODO figure out how to get not quite exact matches
             if performer['name'] == band_name:
                 logging.debug("Found {} playing at {}"
