@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, \
     flash, redirect, url_for, abort
-from flask_googlemaps import GoogleMaps
+# from flask_googlemaps import GoogleMaps
 # import datetime
 import logging
 from werkzeug.contrib.cache import FileSystemCache
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 # Set up Flask-GoogleMaps
-GoogleMaps(app, key=GOOGLE_MAPS_API_KEY)
+# GoogleMaps(app, key=GOOGLE_MAPS_API_KEY)
 
 # Set up Werkzeug's FileSystemCache
 cache = FileSystemCache("./cache")
