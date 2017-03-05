@@ -110,6 +110,26 @@ def retrieve_place_details(place):
     return place_with_details
 
 
+def feature_keys_set():
+    """
+    This tests to see if the needed API keys have been set
+    :return:
+    """
+    feature_key_not_set = False
+    try:
+        if EVENTFUL_KEY == "":
+            feature_key_not_set = True
+        if GOOGLE_MAPS_API_KEY == "":
+            feature_key_not_set = True
+        if GOOGLE_PLACES_API_WEB_SERVICE_KEY == "":
+            feature_key_not_set = True
+        # TODO SkyScanner key
+    except NameError:
+        feature_key_not_set = True
+
+    return not feature_key_not_set
+
+
 ##########
 # Routes
 ##########
@@ -256,4 +276,10 @@ def serve_static(path):
 #########
 
 if __name__ == '__main__':
-    app.run()
+    if feature_keys_set():
+        app.run()
+    else:
+        logging.error(
+            "One or more API keys are not set in secrets.py. Exiting.")
+        exit(1)
+
