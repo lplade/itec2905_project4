@@ -1,0 +1,5 @@
+geo.json
+    Full list of supported places.
+geo_north_america
+    List of supported US places
+
