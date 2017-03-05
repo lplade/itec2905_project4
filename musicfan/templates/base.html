@@ -43,10 +43,10 @@
 
 <div class="container">
     {% if error %} <!--TODO use flash instead? -->
-        <div class="bg-danger">{{ error }}</div>
+        <div class="bg-danger lead">{{ error }}</div>
     {% endif %}
     {% if info %}
-        <div class="bg-info">{{ info }}</div>
+        <div class="bg-info lead">{{ info }}</div>
     {% endif %}
     {% block content %}
         <!-- content will go here inside a div.container -->
@@ -77,9 +77,11 @@
                     <div class="text-center text-muted small">
                         Icons made by <a
                             href="http://www.flaticon.com/authors/roundicons"
-                            title="Roundicons">Roundicons</a> & <a
+                            title="Roundicons">Roundicons</a>, <a
                             href="http://www.flaticon.com/authors/popcorns-arts"
-                            title="Popcorns Arts">Popcorns Arts</a> from <a
+                            title="Popcorns Arts">Popcorns Arts</a>, & <a
+                            href="http://www.flaticon.com/authors/vectors-market"
+                            title="Vectors Market">Vectors Market</a> from <a
                             href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
                         are licensed by <a
                             href="http://creativecommons.org/licenses/by/3.0/"

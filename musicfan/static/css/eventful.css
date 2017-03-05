@@ -1,7 +1,7 @@
 /* https://api.eventful.com/branding */
 .eventful-badge,
 .eventful-badge * {
-    margin: 0 !important;
+    margin: 5px 0 0 0 !important;
     padding: 0 0 0 0 !important;
     border: 0 !important;
     text-align: center !important;

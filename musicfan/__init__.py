@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, request, flash, redirect, url_for, abort
+from flask import Flask, render_template, request, \
+    flash, redirect, url_for, abort
 from flask_googlemaps import GoogleMaps
-import datetime
+# import datetime
 import logging
 from werkzeug.contrib.cache import FileSystemCache
 import bandsearch_api
 import flightsearch_stub
 import lodging_api
 import maps_api
+import mapdistance
 from secrets import *
 
 # Sets the verbosity of console logging
@@ -41,12 +43,15 @@ def retrieve_full_event_list(band_name):
 
     # If it's not there, make API call
     if event_list is None:
+        logging.debug("Retrieving {} from web".format(cache_key))
         event_list = bandsearch_api.search_by_band(
             band_name=band_name
         )
         # cache for 1 hour
         cache.set(cache_key, event_list, timeout=60 * 60)
         # Note that we keep the UNfiltered results cached
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return event_list
 
@@ -78,27 +83,31 @@ def retrieve_full_hotel_list(*args):
     """
     # see comments from event_list above
     cache_key = "places_{}_{}_{}_{}".format(*args)
-    logging.debug("Retrieving {}".format(cache_key))
     rs = cache.get(cache_key)
     if rs is None:
+        logging.debug("Retrieving {} from web".format(cache_key))
         rs = lodging_api.get_query_lodging(*args)
         cache.set(cache_key, rs, timeout=60 * 60)
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return rs
 
 
 def retrieve_place_details(place):
+    # See comments from event_list above
     cache_key = "hotel_{}".format(place.place_id)
-    logging.debug("Retrieving details for {}".format(cache_key))
     place_with_details = cache.get(cache_key)
     if place_with_details is None:
+        logging.debug("Retrieving details for {} from web".format(cache_key))
         # Goes out and retrieves all details
         place.get_details()
         place_with_details = place
         cache.set(cache_key, place_with_details, timeout=60 * 60)
+    else:
+        logging.debug("Found cached key {}".format(cache_key))
 
     return place_with_details
-
 
 
 ##########
@@ -124,9 +133,16 @@ def band_search():
         max_distance = float(request.form["max_distance"])
 
         # Get the coordinates for the start city
-        start_city_latitude, start_city_longitude = \
-            maps_api.find_location_coordinates(start_city)
-        # TODO asynchronous? callback?
+        try:
+            start_city_latitude, start_city_longitude = \
+                maps_api.find_location_coordinates(start_city)
+            # TODO asynchronous? callback?
+        except KeyError:
+            logging.warning("KeyError geocoding \"{}\"".format(start_city))
+            return render_template(
+                "main.html",
+                error="Cannot obtain latitude/longitude for starting city!"
+            )
 
         # Query the cache or the API
         event_list = retrieve_full_event_list(band_query)
@@ -138,7 +154,7 @@ def band_search():
         # TODO query flight prices here?
 
         # FINALLY, we can return the results to user
-        # TODO return proper band name from API call?
+
         total_results = len(event_list)
 
         # TODO do any other processing of the results in here
@@ -158,7 +174,7 @@ def hotel_search():
         event_id = str(request.form["event_id"])
         band_name = str(request.form["band_name"])
         search_radius = int(request.form["search_radius"])
-        cheap_limit = int(request.form["cheap_limit"])
+        # cheap_limit = int(request.form["cheap_limit"])
 
         # And here is where we probably SHOULD have stored this in a real DB
         event_list = retrieve_full_event_list(band_name)
@@ -172,6 +188,7 @@ def hotel_search():
         try:  # make sure selected_concert just got set
             selected_concert
         except NameError:
+            # This should not happen unless the cache was externally tampered
             logging.error("Unable to retrieve previously retrieved event")
             abort(500)
         else:
@@ -183,20 +200,38 @@ def hotel_search():
                 search_radius
             )
 
+            # This is a list of tuples containing:
+            # 1. place data
+            # 2. this distance to the venue
             hotel_list = []
 
             for place in full_list.places:
                 # We have to make another query to get the full details
                 detailed_place = retrieve_place_details(place)
-                # logging.debug(detailed_place)
-                hotel_list.append(detailed_place)
+
+                # price_limit is at place.details['price_limit'],
+                # BUT not all entries have this key.
+                # So we can't reliably filter by price?
+
+                # figure out the distance from the venue
+                # TODO use Google travel matrix API instead
+                distance = mapdistance.distance(
+                    concert.latitude,
+                    concert.longitude,
+                    float(place.geo_location['lat']),
+                    float(place.geo_location['lng'])
+                )
+
+                hotel_list.append((detailed_place, distance))
+
+            # sort the hotel list by distance
+            hotel_list = sorted(hotel_list, key=lambda x: x[1])
 
             return render_template(
                 "hotel_search.html",
                 event_id=event_id,
                 band_name=band_name,
                 search_radius=search_radius,
-                cheap_limit=cheap_limit,
                 concert=selected_concert,
                 hotel_list=hotel_list
             )
