@@ -43,10 +43,10 @@
 
 <div class="container">
     {% if error %} <!--TODO use flash instead? -->
-        <div class="bg-danger">{{ error }}</div>
+        <div class="bg-danger lead">{{ error }}</div>
     {% endif %}
     {% if info %}
-        <div class="bg-info">{{ info }}</div>
+        <div class="bg-info lead">{{ info }}</div>
     {% endif %}
     {% block content %}
         <!-- content will go here inside a div.container -->

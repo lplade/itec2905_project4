@@ -132,9 +132,16 @@ def band_search():
         max_distance = float(request.form["max_distance"])
 
         # Get the coordinates for the start city
-        start_city_latitude, start_city_longitude = \
-            maps_api.find_location_coordinates(start_city)
-        # TODO asynchronous? callback?
+        try:
+            start_city_latitude, start_city_longitude = \
+                maps_api.find_location_coordinates(start_city)
+            # TODO asynchronous? callback?
+        except KeyError:
+            logging.warning("KeyError geocoding \"{}\"".format(start_city))
+            return render_template(
+                "main.html",
+                error="Cannot obtain latitude/longitude for starting city!"
+            )
 
         # Query the cache or the API
         event_list = retrieve_full_event_list(band_query)
@@ -146,7 +153,7 @@ def band_search():
         # TODO query flight prices here?
 
         # FINALLY, we can return the results to user
-        # TODO return proper band name from API call?
+
         total_results = len(event_list)
 
         # TODO do any other processing of the results in here

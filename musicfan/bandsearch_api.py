@@ -71,14 +71,18 @@ def search_by_band(band_name):
     # Get the data in a json format
     json_data = requests.get(api_url).json()
 
-    # let's get a better look at this
-    print(json.dumps(json_data, indent=4))
+    # let's get a better look at the raw data
+    logging.debug(json.dumps(json_data, indent=4))
 
     # initialize an empty list
     event_list = []
 
     # Drill two layers into JSON to get event list
-    raw_event_list = json_data['events']['event']
+    try:
+        raw_event_list = json_data['events']['event']
+    except TypeError:
+        logging.warning("Events list is empty")
+        return event_list
 
     # Loop over this entire list of retrieved events
     for event in raw_event_list:
