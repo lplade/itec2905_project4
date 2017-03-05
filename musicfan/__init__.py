@@ -7,7 +7,7 @@ from flask_googlemaps import GoogleMaps
 import logging
 from werkzeug.contrib.cache import FileSystemCache
 import bandsearch_api
-import flightsearch_stub
+import flightsearch_api
 import lodging_api
 import maps_api
 import mapdistance
