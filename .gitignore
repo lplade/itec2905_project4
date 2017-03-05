@@ -4,3 +4,4 @@ env_p4
 musicfan/secrets.py
 musicfan/cache/*
 __pycache__
+musicfan/skyscanner_resources/*.json
