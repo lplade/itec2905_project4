@@ -14,7 +14,7 @@ import mapdistance
 from secrets import *
 
 # Sets the verbosity of console logging
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 
 # any needed Flask configuration can be passed as arguments to this
 app = Flask(__name__)

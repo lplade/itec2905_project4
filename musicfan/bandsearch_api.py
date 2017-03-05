@@ -107,7 +107,7 @@ def search_by_band(band_name):
                                   .format(performer['name'], band_name))
         except TypeError:
             # Sometimes the performers list is empty
-            logging.warning("Empty performer list")
+            logging.warning("Empty performer list for {}".format(event['title']))
 
         if artist_is_playing_here:
             # If the band is actually playing here, we can add
