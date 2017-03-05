@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, \
     flash, redirect, url_for, abort
 from flask_googlemaps import GoogleMaps
-import datetime
+# import datetime
 import logging
 from werkzeug.contrib.cache import FileSystemCache
 import bandsearch_api
@@ -95,6 +95,7 @@ def retrieve_full_hotel_list(*args):
 
 
 def retrieve_place_details(place):
+    # See comments from event_list above
     cache_key = "hotel_{}".format(place.place_id)
     place_with_details = cache.get(cache_key)
     if place_with_details is None:
@@ -187,6 +188,7 @@ def hotel_search():
         try:  # make sure selected_concert just got set
             selected_concert
         except NameError:
+            # This should not happen unless the cache was externally tampered
             logging.error("Unable to retrieve previously retrieved event")
             abort(500)
         else:
