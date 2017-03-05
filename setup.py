@@ -7,7 +7,7 @@ from shutil import copyfile
 # https://blog.niteoweb.com/setuptools-run-custom-code-in-setup-py/
 class CustomInstallCommand(install):
     def run(self):
-        copyfile('secrets_template.py', 'secrets.py')
+        copyfile('musicfan/secrets_template.py', 'musicfan/secrets.py')
         install.run(self)
 
 setup(
