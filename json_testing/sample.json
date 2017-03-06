@@ -1,0 +1,826 @@
+{
+  "last_item": null,
+  "total_items": "340",
+  "first_item": null,
+  "page_number": "1",
+  "page_size": "10",
+  "page_items": null,
+  "search_time": "0.049",
+  "page_count": "34",
+  "events": {
+    "event": [
+      {
+        "watching_count": null,
+        "olson_path": "America/Mexico_City",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "DIF",
+        "postal_code": null,
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "19.4084121",
+        "groups": null,
+        "url": "http://eventful.com/mexicocity/events/metallica-mexico-/E0-001-098238578-7?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-098238578-7",
+        "privacy": "1",
+        "city_name": "Mexico City",
+        "link_count": null,
+        "longitude": "-99.0912811",
+        "country_name": "Mexico",
+        "country_abbr": "MEX",
+        "region_name": "Distrito Federal",
+        "start_time": "2017-03-05 19:30:00",
+        "tz_id": null,
+        "description": "Buy those Metallica Mexico tickets before they all run out! This is your chance to experience a one-of-a-kind show, as Metallica will be live on stage at Foro Sol. Take this chance to listen to the best songs of Metallica live and buy your Metallica Mexico tickets at Ticketbis.",
+        "modified": "2016-12-08 08:22:17",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": {
+            "creator": "wbrecords",
+            "linker": "evdb",
+            "name": "Metallica",
+            "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+            "id": "P0-001-000053070-4",
+            "short_bio": "Metal / Rock"
+          }
+        },
+        "title": "Metallica Mexico",
+        "venue_address": "Viaducto Piedad y Rio Churubusco S/S Cd Deportiva",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "sara_sd",
+        "going": null,
+        "country_abbr2": "MX",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2016-12-02 02:23:43",
+        "venue_id": "V0-001-000414895-4",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Foro Sol",
+        "venue_url": "http://eventful.com/mexicocity/venues/foro-sol-/V0-001-000414895-4?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/Mexico_City",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "DIF",
+        "postal_code": null,
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "19.4084121",
+        "groups": null,
+        "url": "http://eventful.com/mexicocity/events/metallica-mexico-/E0-001-098076845-4?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-098076845-4",
+        "privacy": "1",
+        "city_name": "Mexico City",
+        "link_count": null,
+        "longitude": "-99.0912811",
+        "country_name": "Mexico",
+        "country_abbr": "MEX",
+        "region_name": "Distrito Federal",
+        "start_time": "2017-03-03 20:30:00",
+        "tz_id": null,
+        "description": "Ticketbis has finally got the Metallica Mexico tickets for their upcoming concert at Foro Sol!  So, of course, if you are a Metallica fan then you better get your tickets for Metallica Mexico here and now before they&#39;re all sold out!  You can count on Ticketbis to help you with all of your ticket-buying needs.  With just a few clicks you can have the Metallica Mexico tickets on their way to you in no time.  Don&#39;t wait another moment and buy yours today!",
+        "modified": "2016-12-08 08:21:55",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": {
+            "creator": "wbrecords",
+            "linker": "evdb",
+            "name": "Metallica",
+            "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+            "id": "P0-001-000053070-4",
+            "short_bio": "Metal / Rock"
+          }
+        },
+        "title": "Metallica Mexico",
+        "venue_address": "Viaducto Piedad y Rio Churubusco S/S Cd Deportiva",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "sara_sd",
+        "going": {
+          "user": {
+            "username": "Voodooebc5a"
+          }
+        },
+        "country_abbr2": "MX",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2016-11-25 01:17:15",
+        "venue_id": "V0-001-000414895-4",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Foro Sol",
+        "venue_url": "http://eventful.com/mexicocity/venues/foro-sol-/V0-001-000414895-4?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/Montreal",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "QC",
+        "postal_code": "G1R 2L7",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "46.8031939",
+        "groups": null,
+        "url": "http://eventful.com/events/metallica-/E0-001-100568545-1?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100568545-1",
+        "privacy": "1",
+        "city_name": "Quebec",
+        "link_count": null,
+        "longitude": "-71.2186917",
+        "country_name": "Canada",
+        "country_abbr": "CAN",
+        "region_name": "Quebec",
+        "start_time": "2017-07-14 13:00:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-21 09:51:49",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": {
+            "creator": "wbrecords",
+            "linker": "evdb",
+            "name": "Metallica",
+            "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+            "id": "P0-001-000053070-4",
+            "short_bio": "Metal / Rock"
+          }
+        },
+        "title": "Metallica",
+        "venue_address": "390 de Bernieres Avenue",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "CA",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-21 09:41:43",
+        "venue_id": "V0-001-006820853-1",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Plains Of Abraham",
+        "venue_url": "http://eventful.com/venues/plains-of-abraham-/V0-001-006820853-1?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "Europe/London",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "MAN",
+        "postal_code": "M1 5WZ",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "53.47426199173217",
+        "groups": null,
+        "url": "http://manchester.eventful.com/events/metallica-reloaded-megadeth-uk-/E0-001-098105408-4?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-098105408-4",
+        "privacy": "1",
+        "city_name": "Manchester",
+        "link_count": null,
+        "longitude": "-2.2505343750076463",
+        "country_name": "United Kingdom",
+        "country_abbr": "GBR",
+        "region_name": "Manchester",
+        "start_time": "2017-03-25 19:00:00",
+        "tz_id": null,
+        "description": " <p><strong>Metallica Reloaded/ Megadeth U.K</strong><br>The UK&#39;s biggest tribute to Metallica and Megadeth.<br><br><p>Metallica Reloaded and Megadeth U.K have joined together for a co-headline show in Manchester!<br><br> Expect to hear all your favourite Metallica and Megadeth songs live at Rebellion Manchester!<p>Advanced tickets are only £8. All tickets purchased on the door are £10.<br><br> Doors 7pm<br> Curfew 11pm</p></p></p>",
+        "modified": "2016-11-26 08:25:37",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": {
+            "creator": "evdb",
+            "linker": "evdb",
+            "name": "Metallica Reloaded",
+            "url": "http://eventful.com/performers/metallica-reloaded-/P0-001-002001551-3?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+            "id": "P0-001-002001551-3",
+            "short_bio": null
+          }
+        },
+        "title": "Metallica Reloaded/ Megadeth U.K",
+        "venue_address": "2B Whitworth Street W.",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "GB",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/035/368/733-7.jpeg_/metallica-reloaded-megadeth-uk-33.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/035/368/733-7.jpeg_/metallica-reloaded-megadeth-uk-33.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/035/368/733-7.jpeg_/metallica-reloaded-megadeth-uk-33.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/035/368/733-7.jpeg_/metallica-reloaded-megadeth-uk-33.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2016-11-26 08:25:37",
+        "venue_id": "V0-001-007586074-6",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Rebellion Rock Bar",
+        "venue_url": "http://manchester.eventful.com/venues/rebellion-rock-bar-/V0-001-007586074-6?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/New_York",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "NY",
+        "postal_code": "11553",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "40.723073",
+        "groups": null,
+        "url": "http://newyorkcity.eventful.com/events/metallica-volbeat-/E0-001-100363139-5?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100363139-5",
+        "privacy": "1",
+        "city_name": "Uniondale",
+        "link_count": null,
+        "longitude": "-73.5906976",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "New York",
+        "start_time": "2017-05-17 19:30:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-13 12:27:07",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": [
+            {
+              "creator": "wbrecords",
+              "linker": "evdb",
+              "name": "Metallica",
+              "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000053070-4",
+              "short_bio": "Metal / Rock"
+            },
+            {
+              "creator": "steffendc",
+              "linker": "evdb",
+              "name": "Volbeat",
+              "url": "http://concerts.eventful.com/Volbeat?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000071668-7",
+              "short_bio": "Rock"
+            }
+          ]
+        },
+        "title": "Metallica & Volbeat",
+        "venue_address": "1255 Hempstead Turnpike",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": {
+          "user": {
+            "username": "Rory95c67"
+          }
+        },
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-13 12:27:07",
+        "venue_id": "V0-001-001448944-3",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "The New Nassau Coliseum",
+        "venue_url": "http://newyorkcity.eventful.com/venues/the-new-nassau-coliseum-/V0-001-001448944-3?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/New_York",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "MA",
+        "postal_code": "02035",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "42.09092926187754",
+        "groups": null,
+        "url": "http://eventful.com/foxboro/events/metallica-volbeat-/E0-001-100359503-9?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100359503-9",
+        "privacy": "1",
+        "city_name": "Foxboro",
+        "link_count": null,
+        "longitude": "-71.2643394767212",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "Massachusetts",
+        "start_time": "2017-05-19 18:00:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-26 02:26:25",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": [
+            {
+              "creator": "wbrecords",
+              "linker": "evdb",
+              "name": "Metallica",
+              "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000053070-4",
+              "short_bio": "Metal / Rock"
+            },
+            {
+              "creator": "steffendc",
+              "linker": "evdb",
+              "name": "Volbeat",
+              "url": "http://concerts.eventful.com/Volbeat?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000071668-7",
+              "short_bio": "Rock"
+            }
+          ]
+        },
+        "title": "Metallica with Volbeat",
+        "venue_address": "1 Patriot Place",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-13 10:12:22",
+        "venue_id": "V0-001-000102516-6",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Gillette Stadium",
+        "venue_url": "http://eventful.com/foxboro/venues/gillette-stadium-/V0-001-000102516-6?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/Chicago",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "MO",
+        "postal_code": "63102",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "38.6220168",
+        "groups": null,
+        "url": "http://stlouis.eventful.com/events/metallica-volbeat-/E0-001-100357705-1?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100357705-1",
+        "privacy": "1",
+        "city_name": "Saint Louis",
+        "link_count": null,
+        "longitude": "-90.1922359",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "Missouri",
+        "start_time": "2017-06-04 18:00:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-13 12:27:10",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": [
+            {
+              "creator": "wbrecords",
+              "linker": "evdb",
+              "name": "Metallica",
+              "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000053070-4",
+              "short_bio": "Metal / Rock"
+            },
+            {
+              "creator": "Alexe3364",
+              "linker": "evdb",
+              "name": "Avenged Sevenfold",
+              "url": "http://concerts.eventful.com/Avenged-Sevenfold?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000012999-7",
+              "short_bio": "Metal/Rock"
+            },
+            {
+              "creator": "steffendc",
+              "linker": "evdb",
+              "name": "Volbeat",
+              "url": "http://concerts.eventful.com/Volbeat?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000071668-7",
+              "short_bio": "Rock"
+            }
+          ]
+        },
+        "title": "Metallica & Volbeat",
+        "venue_address": "700 Clark Avenue",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-13 08:18:36",
+        "venue_id": "V0-001-000839060-7",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Busch Stadium",
+        "venue_url": "http://stlouis.eventful.com/venues/busch-stadium-/V0-001-000839060-7?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/Chicago",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "IL",
+        "postal_code": "60641",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "41.9427356",
+        "groups": null,
+        "url": "http://chicago.eventful.com/events/beatallica-special-guests-/E0-001-100602823-7?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100602823-7",
+        "privacy": "1",
+        "city_name": "Chicago",
+        "link_count": null,
+        "longitude": "-87.7300073",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "Illinois",
+        "start_time": "2017-04-15 20:00:00",
+        "tz_id": null,
+        "description": " Forged from the influences of two of history’s greatest bands, Beatallica are the world’s first live mash-upor “bash-up” band. Their wit, creativity, subversiveness, and flair is just as sharp as the point they make. Beatallica destroy the boundaries of creativity and reveal how original compositions of music can be crafted for those who identify with humor and biting commentary. All the while, they show appreciation and reverence to The Beatlesand Metallica, grandfathers of their respective genres.In August of 2009, Jaymz Lennfield, Kliff McBurtney, Ringo Larz, and Grg III unleashed their sophmorefull-length c.d., Masterful Mystery Tour on Oglio Entertainment and distributed by Universal/Fontana. Their technically brilliant musicianship and uncanny ability has lead to the creation of song titles such as “Hero of the Day Tripper”,“I Want to Choke Your Band” and “Got to Get You Trapped under Ice”. The video for “Hero” can be found on viraland mass media sources everywhere. This triumphant return is a follow-up to Beatallica’s debut, Sgt. Hetfield’s Motorbreath Pub Band, which promptly went to #9 on Billboard’s comedy music chart in the U.S.A. and #1 on Tower Records’ chart in Japan when released in 2007. The singles “Revol-ooh-tion” and “A Garage Dayz Nite” have become fan favorites and live show classics. In 2008, Beatallica did the unthinkable and unleashed the All You Need is Blood maxi-single. The vocals on the recording were done in 14 different languages and set a new bar for creativity and perseverance.  What started as a small buzz about the band is now a full-fledged roar, with the music listening public from all seven continents cheering the undertaking. Foreign labels such as Sony Japan and Megapress in Germany have become welcome partners. On a regular basis, magazine feature writers, radio personalities, and mass media members of a major and world-wide assortment have chased the speeding Beatallica bandwagon. Metallica members themselves are huge allies, and metal powerhouses such as Mike Portnoy of Dream Theater and Scott Ian of Anthrax cite themselves as fans. Beatallica have chalked up appearances with Sammy Hagar, Clutch, members of Mastodon, Jerry Cantrell and Billy Duffy, Motorhead, Testament, Steven Adler of Guns and Roses, L.A. Guns, Sepultura, and many more metal/rock favorites. They have reached headlining status for open-air festivals in both the United States and Europe. A stop in Busan, South Korea and press throughout Japan, South America, and Australia highlight the extent of Beatallica’s international stronghold.Beatallica’s websites have sustained millions of hits and the band’s presence is growing at a rapid pace,with continuing hundreds to thousands of hits from die-hard fans to the various websites per day. A Yahoo.com search will reveal scores of listings of the band. Peers who make their living in the music and media professions have lauded the band’s continual efforts of musicianship, solidarity, comedy, and originality. With the growing support of music lovers of all sorts, Beatallica have bigger plans and ambitious goals on the horizon starting with the release of Masterful Mystery Tour.Beatallica continue to change the face of music on the internet, in live settings, and over radio waves around the globe. They flourish with music lovers from all areas of the world at their side. Throw your fist high into the air, become a Beatallibanger, and open your mind to a one-of-a-kind brand of musical mayhem. ",
+        "modified": "2017-02-22 20:18:49",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": {
+            "creator": "oglio",
+            "linker": "evdb",
+            "name": "Beatallica",
+            "url": "http://concerts.eventful.com/Beatallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+            "id": "P0-001-000020600-1",
+            "short_bio": "Bashing up The Beatles and Metallica into new original masterpieces daily"
+          }
+        },
+        "title": "BEATALLICA WITH SPECIAL GUESTS",
+        "venue_address": "3394 N Milwaukee Avenue",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/002/769/273-7.jpeg_/beatallica-73.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/002/769/273-7.jpeg_/beatallica-73.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/002/769/273-7.jpeg_/beatallica-73.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/002/769/273-7.jpeg_/beatallica-73.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-22 20:18:49",
+        "venue_id": "V0-001-001288786-3",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Livewire Lounge",
+        "venue_url": "http://chicago.eventful.com/venues/livewire-lounge-/V0-001-001288786-3?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/New_York",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "PA",
+        "postal_code": "19148",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "39.9123",
+        "groups": null,
+        "url": "http://philadelphia.eventful.com/events/metallica-avenged-sevenfold-volbeat-/E0-001-100357701-5?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100357701-5",
+        "privacy": "1",
+        "city_name": "Philadelphia",
+        "link_count": null,
+        "longitude": "-75.1533",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "Pennsylvania",
+        "start_time": "2017-05-12 18:00:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-13 08:18:12",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": [
+            {
+              "creator": "wbrecords",
+              "linker": "evdb",
+              "name": "Metallica",
+              "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000053070-4",
+              "short_bio": "Metal / Rock"
+            },
+            {
+              "creator": "Alexe3364",
+              "linker": "evdb",
+              "name": "Avenged Sevenfold",
+              "url": "http://concerts.eventful.com/Avenged-Sevenfold?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000012999-7",
+              "short_bio": "Metal/Rock"
+            },
+            {
+              "creator": "steffendc",
+              "linker": "evdb",
+              "name": "Volbeat",
+              "url": "http://concerts.eventful.com/Volbeat?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000071668-7",
+              "short_bio": "Rock"
+            }
+          ]
+        },
+        "title": "Metallica, Avenged Sevenfold & Volbeat",
+        "venue_address": "1 Lincoln Financial Way",
+        "geocode_type": "Zip Code Based GeoCodes",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-13 08:18:12",
+        "venue_id": "V0-001-010897235-6",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Lincoln Financial Field",
+        "venue_url": "http://philadelphia.eventful.com/venues/lincoln-financial-field-/V0-001-010897235-6?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      },
+      {
+        "watching_count": null,
+        "olson_path": "America/New_York",
+        "calendar_count": null,
+        "comment_count": null,
+        "region_abbr": "FL",
+        "postal_code": "32805",
+        "going_count": null,
+        "all_day": "0",
+        "latitude": "28.5388985",
+        "groups": null,
+        "url": "http://orlando.eventful.com/events/metallica-avenged-sevenfold-volbeat-/E0-001-100357713-0?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+        "id": "E0-001-100357713-0",
+        "privacy": "1",
+        "city_name": "Orlando",
+        "link_count": null,
+        "longitude": "-81.4033425",
+        "country_name": "United States",
+        "country_abbr": "USA",
+        "region_name": "Florida",
+        "start_time": "2017-07-05 18:00:00",
+        "tz_id": null,
+        "description": null,
+        "modified": "2017-02-13 08:18:51",
+        "venue_display": "1",
+        "tz_country": null,
+        "performers": {
+          "performer": [
+            {
+              "creator": "wbrecords",
+              "linker": "evdb",
+              "name": "Metallica",
+              "url": "http://concerts.eventful.com/Metallica?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000053070-4",
+              "short_bio": "Metal / Rock"
+            },
+            {
+              "creator": "Alexe3364",
+              "linker": "evdb",
+              "name": "Avenged Sevenfold",
+              "url": "http://concerts.eventful.com/Avenged-Sevenfold?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000012999-7",
+              "short_bio": "Metal/Rock"
+            },
+            {
+              "creator": "steffendc",
+              "linker": "evdb",
+              "name": "Volbeat",
+              "url": "http://concerts.eventful.com/Volbeat?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+              "id": "P0-001-000071668-7",
+              "short_bio": "Rock"
+            }
+          ]
+        },
+        "title": "Metallica, Avenged Sevenfold & Volbeat",
+        "venue_address": "1 Citrus Bowl Place",
+        "geocode_type": "EVDB Geocoder",
+        "tz_olson_path": null,
+        "recur_string": null,
+        "calendars": null,
+        "owner": "evdb",
+        "going": null,
+        "country_abbr2": "US",
+        "image": {
+          "small": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "width": "48",
+          "caption": null,
+          "medium": {
+            "width": "128",
+            "url": "http://s2.evcdn.com/images/medium/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "128"
+          },
+          "url": "http://s2.evcdn.com/images/small/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+          "thumb": {
+            "width": "48",
+            "url": "http://s2.evcdn.com/images/thumb/I0-001/004/272/621-3.jpeg_/metallica-21.jpeg",
+            "height": "48"
+          },
+          "height": "48"
+        },
+        "created": "2017-02-13 08:18:51",
+        "venue_id": "V0-001-005522219-7",
+        "tz_city": null,
+        "stop_time": null,
+        "venue_name": "Camping World Stadium",
+        "venue_url": "http://orlando.eventful.com/venues/camping-world-stadium-/V0-001-005522219-7?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+      }
+    ]
+  }
+}

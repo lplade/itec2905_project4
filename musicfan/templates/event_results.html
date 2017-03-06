@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Music Fan - Search results for {{ band_name }}{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-4">
+             <img src="/img/flaticon_travel_800px.png" alt="airplane over globe" class="img-responsive">
+            </div>
+            <div class="col-md-8 center-block">
+                <h1>Event search results</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <i>Found {{ total_results }} events for {{ band_name }} </i>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Date</th>
+                        <th>
+                            <div>Event</div>
+                            <div>Venue</div>
+                        </th>
+                        <th>
+                            <div>City</div>
+                            <div>State</div>
+                            <div>Country</div>
+                        </th>
+                        <th>Distance</th>
+                        <th>Flight info</th>
+                        <th><!--column placeholder--></th>
+                    </tr>
+                    {% for event in event_list|sort(attribute='date') %}
+                        <tr>
+                            <td>{{ event.date }}</td>
+                            <td>
+                                <div><strong>{{ event.title }}</strong></div>
+                                <div class="small">at {{ event.venue_name }}</div>
+                            </td>
+                            <td>
+                                <div>{{ event.city_name }}</div>
+                                <div class="small">{{ event.region_name }}</div>
+                                <div class="small">{{ event.country_name }}</div>
+                            </td>
+                            <td>{{ '%.1f' % event.distance }} miles</td>
+                            <td><!--TODO some data from flight module--></td>
+                            <td>
+                                <form action="/hotelsearch" method="post">
+                                    <input type="hidden" name="event_id" value="{{ event.event_id }}">
+                                    <input type="hidden" name="band_name" value="{{ band_name }}">
+                                    <input type="hidden" name="search_radius" value="3200">
+                                    <input type="hidden" name="cheap_limit" value="4">
+                                    <button type="submit" class="btn btn-default">Let's go!</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr class="warning"><td colspan="5">No events found!</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <!--TODO map pane goes here-->
+        </div>
+    </div>
+{% endblock %}
+{% block custom_js %}
+<!-- put/load any scripts that are specific to this page here -->
+{% endblock %}

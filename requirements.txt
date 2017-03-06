@@ -1,8 +1,14 @@
 click==6.7
+decorator==4.0.11
 Flask==0.12
-Flask-SQLAlchemy==2.1
+Flask-GoogleMaps==0.2.4
+Flask-Script==2.0.5
+geocoder==1.20.1
 itsdangerous==0.24
 Jinja2==2.9.5
 MarkupSafe==0.23
-SQLAlchemy==1.1.5
+python-google-places==1.4.0
+ratelim==0.1.6
+requests==2.13.0
+six==1.10.0
 Werkzeug==0.11.15
