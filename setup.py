@@ -12,7 +12,7 @@ class CustomInstallCommand(install):
 
 setup(
     name='MusicFan',
-    version='0.1.dev',
+    version='0.1',
     packages=['musicfan'],
     url='https://github.com/lplade/itec2905_project4',
     license='',
